@@ -138,14 +138,15 @@ Bevmo -
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 #sponsor-title {
+    height: auto;
     font-size: 4em;
     color: #2A1A60;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 0 0 120px 0;
     border-bottom: 1.45px solid var(--primary-2);
 
 }
@@ -154,7 +155,10 @@ Bevmo -
     /* background: lightblue; */
     /* padding: .5em 1em; */
     width: 85vw;
+    height: auto;
     max-width: 1000px;
+    display: flex;
+    flex-direction: column;
     
     list-style: none;
 }
@@ -162,8 +166,10 @@ Bevmo -
 #sponsor-list li {
     /* margin: 20px 0 0 0; */
     /* background: green; */
-    position: relative;
+    /* position: relative; */
     width: 100%;
+    margin-bottom: 25px;
+    
     /* border: 1px solid var(--primary-3); */
 }
 
@@ -213,7 +219,8 @@ Bevmo -
 
 #sponsor-description-text {
     margin: 1.5em 2em;
-    font-size: 1.4em;
+    font-size: 1.8em;
+    line-height: 2;
     font-weight: 605;
     padding: 0 0.75em;
     /* text-shadow:0.5px 0.5px 0px rgba(42, 26, 96, 0.9);; */
@@ -238,9 +245,13 @@ Bevmo -
 }
 
 .sponsor-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     box-shadow: inset 0px 0px 5px 15px white;
     /* background: #2A1A60; */
-    padding-bottom: 10px;
+    margin: 0 0 20px 0;
 }
 
 .sponsor-wrapper:hover {
@@ -262,7 +273,7 @@ Bevmo -
     width: 100%;
     z-index: -1;
     position: absolute;
-    height: 90%;
+    height: 100%;
     opacity: 0.65;
 }
 
