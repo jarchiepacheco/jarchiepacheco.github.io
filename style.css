@@ -1,10 +1,19 @@
 :root {
-    --primary-1: #a2c7e5;
-    --primary-2: #EFBC7D;
-    --primary-3: #5c0029;
-    --tone-1: #586f6b;
-    --tone-2: #222725;
-    --active-color: #2A1A60;
+    --clr-light: #FFFFFF;
+    --clr-1: #FFD523;
+    --clr-2: #B2B1B9;
+    --clr-3: #595260;
+    --clr-dark: #2C2E43;
+
+/* Palette 2 
+#2C2E43
+#595260
+#B2B1B9
+#FFD523
+#FFFFFF
+*/
+
+    --active-color: #2C2E43 ;
     --active-text: transparent;
 }
 
@@ -23,6 +32,42 @@ p,
 li {
     line-height: 1.4;
 }
+/* General Use */
+.yellow {
+    background: var(--clr-1);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.big-title {
+    font-size: ;
+    font-weight: ;
+    line-height: ;
+}
+
+.big-heading {
+    font-size: ;
+    font-weight: ;
+    line-height: ;
+}
+
+.med-heading {
+    font-size: ;
+    font-weight: ;
+    line-height: ;
+}
+
+.highlight {
+    color: ;
+}
 
 /* Navbar Section */
 
@@ -31,8 +76,9 @@ header {
     z-index: 2;
     width: 100%;
     height: 60px;
-    background: rgba(42, 26, 96, 0.05);
-    backdrop-filter: blur(20px);
+    background: rgba(232, 240, 242, 0.05);
+    /* can drop blur to 20 on mobile */
+    backdrop-filter: blur(60px);
     display: grid;
     grid-template-columns: 3fr 2.5fr;
     align-items: center;
@@ -41,12 +87,25 @@ header {
 
 #logo-container {
     width: 100%;
+    height: 100%;
     /* background: blue; */
+    position: relative;
+}
+#logo-container::before {
+    content: "LOGO";
+    /* background: green; */
+    display: block;
+    font-weight: 800;
+    color: var(--clr-dark);
+    margin: 0;
+    padding: .25em .75em;
+    font-size: 2em;
 }
 
 #logo-container img {
+    display: none;
     padding: .25em .75em;
-    min-width: 80px;
+    max-width: 120px;
 }
 
 
@@ -79,7 +138,7 @@ header {
     padding: .5em .95em;
     
 
-    color: rgba(42, 26, 96, 1);
+    color: var(--clr-dark);
     font-weight: 550;
     text-decoration: none;
     white-space: nowrap;
@@ -104,16 +163,20 @@ header {
 
     width: 100%;
     height: 2px;
-    background: rgba(42, 26, 96, 1);
+    background: var(--clr-dark);
 }
 
 /* Main Section */
+
 .main-content {
-    padding: 65px 1em 2em 1em;
+/* DO NOT ADD SIDE MARGINS TO GENERAL SECTIONs */
+    padding: 65px 0 2em 0;
+    box-shadow: 0 0 10px 1px var(--clr-2);
+    background: var(--clr-light);
 }
 
 .main-content section {
-    margin: 40px 0;
+    /* margin: 40px 0; */
     padding-top: 60px;
 }
 
@@ -121,30 +184,18 @@ header {
 #intro {
     margin: 0;
     padding: 0;
+    width: 100vw;
 }
 .intro-wrapper {
     width: 100%;
+    height: 35vw;
+
+    background: var(--clr-1);
 }
 
-.intro-wrapper img {
-    width: 100%;
 
-}
 
-/* 
-sponsorlist:
-
-Chipotle - https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfu0-6AV9ixPB42FYDElCAxGWTNfyo83urTT85Ac8MRNHMEFZB8DMliaFd2m_Sdq0ZwshFEstllCB8GQ&usqp=CAU
-
-Coffee BEan - https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQIOcKvP29QI6DXyjVtuTbOeQ8x3C57Y5pU4UgTgg12nCGxkCzf1R1CxUDbD-LAFEQFhizrSdGsDp0Q&usqp=CAU
-
-Target - 
-
-99 - 
-
-Bevmo - 
-
-*/
+/* sponsorlist: */
 
 #sponsors {
     /* background: red; */
@@ -152,7 +203,7 @@ Bevmo -
     position: relative;
     /* max-width: 1100px; */
     min-height: 200px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,10 +213,10 @@ Bevmo -
 #sponsor-title {
     height: auto;
     font-size: 4em;
-    color: #2A1A60;
+    color: var(--clr-dark);
     text-align: center;
-    margin: 0 0 120px 0;
-    border-bottom: 1.45px solid var(--primary-2);
+    margin: 0 0 1.2em 0;
+    border-bottom: 2.5px solid var(--clr-1);
 
 }
 
@@ -174,9 +225,12 @@ Bevmo -
     /* padding: .5em 1em; */
     width: 85vw;
     height: auto;
-    max-width: 1000px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    
     
     list-style: none;
 }
@@ -186,21 +240,34 @@ Bevmo -
     /* background: green; */
     /* position: relative; */
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 3em;
     
     /* border: 1px solid var(--primary-3); */
 }
 
+#sponsor-list a {
+    text-decoration: none;
+}
+
 #sponsor-list a::before {
-    margin: 0 16px;
+    margin: 0 auto;
+    width: 30%;
     font-size: 1.8em;
     display: block;
     text-align: center;
     
     font-weight: 800;
-    background: rgba(42, 26, 96, 1);
-    color: rgba(239, 188, 125, 1);
+    background: var(--clr-dark);
+    color: var(--clr-1);
+
+    border-radius: 20px;
     /* border-bottom: 1px solid rgba(239, 188, 125, 1) */
+}
+
+#sponsor-list a:hover::before {
+    background: var(--clr-1);
+    color: var(--clr-dark);
+
 }
 
 .chipotle-hoverable::before {
@@ -219,157 +286,154 @@ Bevmo -
     content: "Bevmo";
 }
 
-
-#sponsor-list a {
-    z-index: 3;
-    width: fit-content;
-    height: fit-content;
-    background: green;
-    text-decoration: none;
-    /* border-bottom: 1px solid rgba(42, 26, 96, 1); */
-}
-#sponsor-list a:hover {
-    
-    /* color: rgba(42, 26, 96, 1); */
-    background: rgba(239, 188, 125, 1);
-    /* text-decoration: underline; */
-}
-
-#sponsor-description-text {
-    margin: 1.5em 2em;
-    font-size: 1.8em;
-    line-height: 2;
-    font-weight: 605;
-    padding: 0 0.75em;
-    /* text-shadow:0.5px 0.5px 0px rgba(42, 26, 96, 0.9);; */
-    color: var(--active-text);
-    
-    background: rgba(239, 188, 125, .10);
-    z-index: 2;
-}
-
 /* Individial Sponsors */
-#chipotle {
-    /* background: blue; */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-.sponsor {
-   
+.sponsor {   
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-.sponsor-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    box-shadow: inset 0px 0px 5px 15px white;
-    /* background: #2A1A60; */
-    margin: 0 0 20px 0;
-}
 
-.sponsor-wrapper:hover {
-    --active-text: rgba(42, 26, 96, 1);
-    background: rgba(239, 188, 125, 1)
 
+
+@media screen and (max-width: 600px) {
 
 }
 
-#chipotle img {
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height:fit-content;
-    opacity: 0.65;
-}
-
-#sponsor-list img {
-    width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: 100%;
-    opacity: 0.65;
-}
 
 /* MEDIA */
 #media {
-    max-width: 75vw;
-    margin: 50px auto 0 auto;
+    width: 100vw;
+    margin: 50px 0 0 0;
+    padding: 50px 0;
+}
+
+#media iframe {
+    /* Cuts out extra whitespace from player */
+    width: 80%;
+    max-width: 800px;
+    height: 200px;
+    
 }
 
 #media h2 {
     padding: .5em 0;
     font-size: 2.4em;
     text-align: center;
-    color: rgba(42, 26, 96, 1);
+    color: var(--clr-dark);
 }
 
 /* Footer */
 footer {
+    color: var(--clr-dark);
     text-align: center;
 }
 
 footer div {
-    margin: 65px 0 65px 0;
+    padding: 65px 0 0 0;
+    
 }
 
 #contact-us {
-
+    background: white;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #contact-us-title {
-    margin-bottom: 15px;
-    font-size: 2em;
+    margin-bottom: 35px;
+    font-size: 2.6em;
+}
+#contact-us-title::after {
+    content: "";
+    display: block;
+    width: calc(2.4em * 2.2);
+    margin: 0 auto;
+    height: 2px;
+    background: var(--clr-1);
 }
 
 #contact-us-text {
+    color: var(--clr-3);
     font-size: 1.2em;
     font-weight: 480;
-    margin: .5em 0;
+    margin: .75em 0;
 }
 
 #buisness-inquiry-text {
+    color: var(--clr-3);
     font-size: 1.2em;
     font-weight: 480;
-    margin: .5em 0;
+    margin: .75em 0;
 
 }
 #contact-us a {
-    color: #E92A34;
+    color: rgb(175, 55, 55);
+    text-align: center;
+    
+    font-weight: 550;
     text-decoration: none;
 }
 
+#contact-us a:hover {
+    color: var(--clr-1);
+    font-weight: 600;
+}
+
+
 #find-us {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 15px;
+    margin: 40px;
 }
 
 #find-us-title {
-    margin-bottom: 15px;
-    font-size: 2em;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+}
+#find-us-title::after {
+    content: "";
+    display: block;
+    width: calc(2em * 5.2);
+    margin: 0 auto;
+    height: 2px;
+    background: var(--clr-1);
 }
 
 #footer-links {
     display: flex;
-    width: 85vw;
+    width: 75vw;
     margin: auto;
+    padding: 10px 20px 20px 20px;
     /* background: green; */
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2em;
     list-style: none;
 }
 
-.link-group:hover {
-    --active-color: rgba(239, 188, 125, 1);
+@media screen and (max-width: 600px) {
+    #footer-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
 
-    border-radius: 10px;
+.link-group {
+    /* background: red; */
+    width: 10em;
+}
+
+.link-group:hover {
+    --active-color: var(--clr-1);
 }
 
 #footer-links svg {
@@ -392,4 +456,9 @@ footer div {
 
 .footer-link:hover {
     /* text-shadow: 1px 0 1px lightcoral, 0 1px 1px lightskyblue; */
+}
+
+#footer-logo {
+    padding: .75em 1em;
+    margin: 0.5em;
 }
